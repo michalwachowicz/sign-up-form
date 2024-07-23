@@ -6,6 +6,10 @@
   font-weight: bold;
 }
 
+:root {
+  --content-pad: 1rem 2rem;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -79,5 +83,64 @@
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   flex: 2;
+  background-color: #f9fafb;
+}
+
+.disclaimer {
+  padding: var(--content-pad);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.disclaimer > p + p {
+  margin-top: 1rem;
+}
+
+.form-controls {
+  padding: var(--content-pad);
+  margin-top: 2rem;
+  background-color: #fff;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.form-row + .form-row {
+  margin-top: 1.2rem;
+}
+
+.form-widget {
+  flex: 1 1 200px;
+}
+
+.form-widget label,
+.form-widget input {
+  display: block;
+  width: 100%;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.submit-container {
+  padding: var(--content-pad);
+}
+
+.submit-container button {
+  margin-top: 2rem;
+}
+
+.submit-container p {
+  margin-top: 1rem;
 }
