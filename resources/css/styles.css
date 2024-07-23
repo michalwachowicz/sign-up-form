@@ -5,3 +5,39 @@
   font-style: normal;
   font-weight: bold;
 }
+
+.sidebar {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+}
+
+.sidebar-credits {
+  position: absolute;
+  color: #fff;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.logo-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  top: 25%;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.logo-img {
+  width: 5rem;
+}
+
+.logo-title {
+  color: #fff;
+  font-family: "norse-bold", sans-serif;
+  font-size: 5rem;
+}
