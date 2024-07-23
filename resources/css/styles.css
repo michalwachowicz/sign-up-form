@@ -106,8 +106,10 @@
 
 .form-controls {
   padding: var(--content-pad);
+  padding-bottom: 2rem;
   margin-top: 2rem;
   background-color: #fff;
+  box-shadow: var(--box-shadow);
   width: 100%;
 }
 
