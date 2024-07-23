@@ -20,8 +20,7 @@
   position: relative;
   flex-direction: column;
   width: 100%;
-  max-height: 16rem;
-  flex: 1;
+  flex: 1 1 16rem;
 }
 
 .sidebar-bg-container {
@@ -75,6 +74,7 @@
 
   .sidebar {
     max-height: 100vh;
+    flex: 1;
   }
 
   .logo-container {
