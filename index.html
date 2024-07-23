@@ -51,6 +51,7 @@
                   name="first-name"
                   pattern="\p{L}+"
                   title="Please enter only letters"
+                  placeholder="e.g. John"
                   required
                 />
               </div>
@@ -64,6 +65,7 @@
                   name="last-name"
                   pattern="[\p{L} ]+"
                   title="Please enter only letters and spaces"
+                  placeholder="e.g. Doe"
                   required
                 />
               </div>
@@ -79,6 +81,7 @@
                   name="email"
                   pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$"
                   title="Please enter a valid e-mail address"
+                  placeholder="e.g. john.doe@mail.com"
                   required
                 />
               </div>
@@ -86,7 +89,13 @@
                 <label for="phone">
                   Phone number <span aria-label="required">*</span>
                 </label>
-                <input type="tel" id="phone" name="phone" required />
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="e.g. +1 (123) 456-7890"
+                  required
+                />
               </div>
             </div>
             <div class="form-row">
@@ -94,7 +103,13 @@
                 <label for="pwd">
                   Password <span aria-label="required">*</span>
                 </label>
-                <input type="password" id="pwd" name="pwd" required />
+                <input
+                  type="password"
+                  id="pwd"
+                  name="pwd"
+                  placeholder=" "
+                  required
+                />
               </div>
               <div class="form-widget">
                 <label for="pwd-confirm">
@@ -104,6 +119,7 @@
                   type="password"
                   id="pwd-confirm"
                   name="pwd-confirm"
+                  placeholder=" "
                   required
                 />
               </div>
