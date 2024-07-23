@@ -9,6 +9,7 @@
 :root {
   --content-pad: 1rem 2rem;
   --light-gray: #d7d7d7;
+  --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .container {
@@ -146,7 +147,7 @@
 
 .form-widget input:focus {
   border: 1px solid #5667ff;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--box-shadow);
 }
 
 .form-widget input:not(:placeholder-shown):invalid {
@@ -173,4 +174,21 @@ h2 {
 [aria-label="required"] {
   color: red;
   font-weight: bolder;
+}
+
+button[type="submit"] {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  background-color: #596d48;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:active {
+  background-color: #465638;
+  box-shadow: var(--box-shadow);
 }
