@@ -145,3 +145,8 @@ h2 {
 .submit-container p {
   margin-top: 1rem;
 }
+
+[aria-label="required"] {
+  color: red;
+  font-weight: bolder;
+}
