@@ -6,10 +6,19 @@
   font-weight: bold;
 }
 
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
 .sidebar {
   position: relative;
-  max-width: 600px;
-  width: 100%;
+  flex: 1;
+}
+
+.sidebar-bg {
+  height: 100%;
+  object-fit: cover;
 }
 
 .sidebar-credits {
@@ -40,4 +49,8 @@
   color: #fff;
   font-family: "norse-bold", sans-serif;
   font-size: 5rem;
+}
+
+.main {
+  flex: 2;
 }
