@@ -8,6 +8,7 @@
 
 :root {
   --content-pad: 1rem 2rem;
+  --main-color: #596d48;
   --light-gray: #d7d7d7;
   --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -189,6 +190,12 @@ button[type="submit"] {
 
 button[type="submit"]:hover,
 button[type="submit"]:active {
-  background-color: #465638;
+  background-color: var(--main-color);
   box-shadow: var(--box-shadow);
+}
+
+a {
+  color: var(--main-color);
+  font-weight: bold;
+  text-decoration: none;
 }
