@@ -155,7 +155,8 @@
   box-shadow: var(--box-shadow);
 }
 
-.form-widget input:not(:placeholder-shown):invalid {
+.form-widget input:not(:placeholder-shown):invalid,
+.form-widget input.invalid {
   border: 1px solid var(--err-color);
 }
 
@@ -174,6 +175,46 @@ h2 {
 
 .submit-container p {
   margin-top: 1rem;
+}
+
+#pwd-validator {
+  border-radius: 4px;
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  box-shadow: var(--box-shadow);
+}
+
+#pwd-validator h3 {
+  margin-bottom: 0.5rem;
+}
+
+.pwd-checker {
+  color: var(--err-color);
+}
+
+.pwd-checker.valid {
+  color: var(--main-color);
+}
+
+.pwd-checker::before {
+  content: "✘";
+  margin-right: 0.22rem;
+  font-weight: bold;
+}
+
+.pwd-checker.valid::before {
+  content: "✓";
+  margin-right: 0.1rem;
+}
+
+.pwd-checker + .pwd-checker {
+  margin-top: 0.25rem;
+}
+
+#pwd-match {
+  color: var(--err-color);
+  margin-top: 0.5rem;
 }
 
 [aria-label="required"] {
