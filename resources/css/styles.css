@@ -94,6 +94,7 @@
   padding: var(--content-pad);
   font-size: 1.2rem;
   font-weight: bold;
+  margin-top: 1.5rem;
 }
 
 .disclaimer > p + p {
