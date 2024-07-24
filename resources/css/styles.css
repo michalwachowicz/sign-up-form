@@ -71,13 +71,14 @@ body {
   z-index: 1;
 }
 
-.logo-img {
+.logo-img-container {
   width: 5rem;
 }
 
 .logo-title {
   color: #fff;
   font-family: "norse-bold", sans-serif;
+  font-display: swap;
   font-size: 5rem;
 }
 
