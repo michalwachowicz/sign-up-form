@@ -46,13 +46,22 @@ const validateCheck = (element, validator) => {
   return validator;
 };
 
+const showMatchError = (show) => {
+  enableClass(pwdConfirm, "invalid", show);
+  enableClass(pwdValidator.match, "hidden", !show);
+};
+
 const passwordMatch = () => {
   const password = pwd.value;
   const confirmPassword = pwdConfirm.value;
 
   match = password == confirmPassword;
-  enableClass(pwdConfirm, "invalid", !match);
-  enableClass(pwdValidator.match, "hidden", match);
+  showMatchError(!match);
+};
+
+const showInvalidError = (show) => {
+  enableClass(pwd, "invalid", show);
+  enableClass(pwdValidator.validator, "hidden", !show);
 };
 
 const validate = (e) => {
@@ -71,9 +80,13 @@ const validate = (e) => {
     if (!passwordInvalid && !valid) passwordInvalid = !valid;
   }
 
-  enableClass(pwd, "invalid", passwordInvalid);
-  enableClass(pwdValidator.validator, "hidden", !passwordInvalid);
+  showInvalidError(passwordInvalid);
   passwordMatch();
+};
+
+const hideMessagesOnBlur = () => {
+  if (pwd.value == "") showInvalidError(false);
+  if (pwdConfirm.value == "") showMatchError(false);
 };
 
 const preventSubmit = (e) => {
@@ -81,5 +94,6 @@ const preventSubmit = (e) => {
 };
 
 pwd.addEventListener("input", validate);
+pwd.addEventListener("blur", hideMessagesOnBlur);
 pwdConfirm.addEventListener("input", passwordMatch);
 signUpForm.addEventListener("submit", preventSubmit);
