@@ -37,9 +37,6 @@ const enableClass = (element, className, enable) => {
   }
 };
 
-const displayValidator = (show) =>
-  enableClass(pwdValidator.validator, "hidden", !show);
-
 const validateCheck = (element, validator) => {
   enableClass(element, "valid", validator);
   return validator;
@@ -61,8 +58,8 @@ const validate = (e) => {
     if (!passwordInvalid && !valid) passwordInvalid = !valid;
   }
 
-  displayValidator(passwordInvalid);
-  enableClass(pwd, "invalid", passwordInvalid);
+  enableClass(e.target, "invalid", passwordInvalid);
+  enableClass(pwdValidator.validator, "hidden", !passwordInvalid);
 };
 
 const passwordMatch = (e) => {
