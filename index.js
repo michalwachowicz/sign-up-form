@@ -65,4 +65,15 @@ const validate = (e) => {
   enableClass(pwd, "invalid", passwordInvalid);
 };
 
+const passwordMatch = (e) => {
+  const password = pwd.value;
+  const confirmPassword = e.target.value;
+
+  const match = password == confirmPassword;
+
+  enableClass(e.target, "invalid", !match);
+  enableClass(pwdValidator.match, "hidden", match);
+};
+
 pwd.addEventListener("input", validate);
+pwdConfirm.addEventListener("input", passwordMatch);
