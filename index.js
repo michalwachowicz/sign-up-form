@@ -27,31 +27,21 @@ const pwdValidator = {
   match: document.querySelector("#pwd-match"),
 };
 
-const displayValidator = (show) => {
-  const validator = pwdValidator.validator;
-  const hiddenClass = "hidden";
-  const hidden = validator.classList.contains(hiddenClass);
+const enableClass = (element, className, enable) => {
+  const hasClass = element.classList.contains(className);
 
-  if (show && hidden) {
-    validator.classList.remove(hiddenClass);
-  } else if (!show && !hidden) {
-    validator.classList.add(hiddenClass);
+  if (enable && !hasClass) {
+    element.classList.add(className);
+  } else if (!enable && hasClass) {
+    element.classList.remove(className);
   }
 };
 
-const setValid = (element, valid) => {
-  const validClass = "valid";
-  const isValid = element.classList.contains(validClass);
-
-  if (valid && !isValid) {
-    element.classList.add(validClass);
-  } else if (!valid && isValid) {
-    element.classList.remove(validClass);
-  }
-};
+const displayValidator = (show) =>
+  enableClass(pwdValidator.validator, "hidden", !show);
 
 const validateCheck = (element, validator) => {
-  setValid(element, validator);
+  enableClass(element, "valid", validator);
   return validator;
 };
 
