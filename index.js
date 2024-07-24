@@ -1,5 +1,9 @@
 const pwd = document.querySelector("#pwd");
 const pwdConfirm = document.querySelector("#pwd-confirm");
+const signUpForm = document.querySelector("form");
+
+let passwordInvalid = true;
+let match = false;
 
 const pwdValidator = {
   validator: document.querySelector("#pwd-validator"),
@@ -42,9 +46,14 @@ const validateCheck = (element, validator) => {
   return validator;
 };
 
+const showInvalidError = (show) => {
+  enableClass(pwd, "invalid", show);
+  enableClass(pwdValidator.validator, "hidden", !show);
+};
+
 const validate = (e) => {
   const password = e.target.value;
-  let passwordInvalid = false;
+  passwordInvalid = false;
 
   for (const prop in pwdValidator) {
     if (prop === "validator" || prop === "match") continue;
@@ -58,19 +67,34 @@ const validate = (e) => {
     if (!passwordInvalid && !valid) passwordInvalid = !valid;
   }
 
-  enableClass(e.target, "invalid", passwordInvalid);
-  enableClass(pwdValidator.validator, "hidden", !passwordInvalid);
+  showInvalidError(passwordInvalid);
+};
+
+const showMatchError = (show) => {
+  enableClass(pwdConfirm, "invalid", show);
+  enableClass(pwdValidator.match, "hidden", !show);
 };
 
 const passwordMatch = (e) => {
   const password = pwd.value;
   const confirmPassword = e.target.value;
 
-  const match = password == confirmPassword;
+  match = password == confirmPassword;
+  showMatchError(!match);
+};
 
-  enableClass(e.target, "invalid", !match);
-  enableClass(pwdValidator.match, "hidden", match);
+const preventSubmit = (e) => {
+  if (passwordInvalid) {
+    showInvalidError(true);
+    e.preventDefault();
+  }
+
+  if (!match) {
+    showMatchError(true);
+    e.preventDefault();
+  }
 };
 
 pwd.addEventListener("input", validate);
 pwdConfirm.addEventListener("input", passwordMatch);
+signUpForm.addEventListener("submit", preventSubmit);
