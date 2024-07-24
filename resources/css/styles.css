@@ -54,6 +54,10 @@ body {
   z-index: 1;
 }
 
+.sidebar-credits a {
+  color: inherit;
+}
+
 .logo-container {
   position: absolute;
   display: flex;
@@ -182,6 +186,12 @@ h2 {
   margin-top: 1rem;
 }
 
+.submit-container a {
+  color: var(--main-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
 #pwd-validator {
   border-radius: 4px;
   margin-top: 0.75rem;
@@ -242,12 +252,6 @@ button[type="submit"]:hover,
 button[type="submit"]:active {
   background-color: var(--main-color);
   box-shadow: var(--box-shadow);
-}
-
-a {
-  color: var(--main-color);
-  font-weight: bold;
-  text-decoration: none;
 }
 
 .hidden {
