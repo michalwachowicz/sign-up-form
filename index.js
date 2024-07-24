@@ -47,7 +47,7 @@ const validateCheck = (element, validator) => {
 
 const validate = (e) => {
   const password = e.target.value;
-  let passwordValid = true;
+  let passwordInvalid = false;
 
   for (const prop in pwdValidator) {
     if (prop === "validator" || prop === "match") continue;
@@ -58,11 +58,11 @@ const validate = (e) => {
       validator.validator(password)
     );
 
-    if (passwordValid && !valid) passwordValid = valid;
+    if (!passwordInvalid && !valid) passwordInvalid = !valid;
   }
 
-  displayValidator(!passwordValid);
-  enableClass(pwd, "invalid", !passwordValid);
+  displayValidator(passwordInvalid);
+  enableClass(pwd, "invalid", passwordInvalid);
 };
 
 pwd.addEventListener("input", validate);
