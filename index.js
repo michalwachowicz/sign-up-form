@@ -46,22 +46,13 @@ const validateCheck = (element, validator) => {
   return validator;
 };
 
-const showMatchError = (show) => {
-  enableClass(pwdConfirm, "invalid", show);
-  enableClass(pwdValidator.match, "hidden", !show);
-};
-
 const passwordMatch = () => {
   const password = pwd.value;
   const confirmPassword = pwdConfirm.value;
 
   match = password == confirmPassword;
-  showMatchError(!match);
-};
-
-const showInvalidError = (show) => {
-  enableClass(pwd, "invalid", show);
-  enableClass(pwdValidator.validator, "hidden", !show);
+  enableClass(pwdConfirm, "invalid", !match);
+  enableClass(pwdValidator.match, "hidden", match);
 };
 
 const validate = (e) => {
@@ -80,20 +71,13 @@ const validate = (e) => {
     if (!passwordInvalid && !valid) passwordInvalid = !valid;
   }
 
-  showInvalidError(passwordInvalid);
+  enableClass(pwd, "invalid", passwordInvalid);
+  enableClass(pwdValidator.validator, "hidden", !passwordInvalid);
   passwordMatch();
 };
 
 const preventSubmit = (e) => {
-  if (passwordInvalid) {
-    showInvalidError(true);
-    e.preventDefault();
-  }
-
-  if (!match) {
-    showMatchError(true);
-    e.preventDefault();
-  }
+  if (passwordInvalid || !match) e.preventDefault();
 };
 
 pwd.addEventListener("input", validate);
