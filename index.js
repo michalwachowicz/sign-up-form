@@ -62,6 +62,7 @@ const validate = (e) => {
   }
 
   displayValidator(!passwordValid);
+  enableClass(pwd, "invalid", !passwordValid);
 };
 
 pwd.addEventListener("input", validate);
