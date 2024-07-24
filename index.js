@@ -46,6 +46,19 @@ const validateCheck = (element, validator) => {
   return validator;
 };
 
+const showMatchError = (show) => {
+  enableClass(pwdConfirm, "invalid", show);
+  enableClass(pwdValidator.match, "hidden", !show);
+};
+
+const passwordMatch = () => {
+  const password = pwd.value;
+  const confirmPassword = pwdConfirm.value;
+
+  match = password == confirmPassword;
+  showMatchError(!match);
+};
+
 const showInvalidError = (show) => {
   enableClass(pwd, "invalid", show);
   enableClass(pwdValidator.validator, "hidden", !show);
@@ -68,19 +81,7 @@ const validate = (e) => {
   }
 
   showInvalidError(passwordInvalid);
-};
-
-const showMatchError = (show) => {
-  enableClass(pwdConfirm, "invalid", show);
-  enableClass(pwdValidator.match, "hidden", !show);
-};
-
-const passwordMatch = (e) => {
-  const password = pwd.value;
-  const confirmPassword = e.target.value;
-
-  match = password == confirmPassword;
-  showMatchError(!match);
+  passwordMatch();
 };
 
 const preventSubmit = (e) => {
